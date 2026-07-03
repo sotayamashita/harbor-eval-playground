@@ -1,0 +1,24 @@
+# Local JSON Schema generated from Harbor's TaskConfig model.
+#:schema ../../schemas/harbor-task.schema.json
+schema_version = "1.3"
+
+# What this task evaluates.
+[task]
+name = "sotayamashita/slugify-contract"
+description = "Fix a small slugify function according to a contract."
+
+[metadata]
+category = "programming"
+difficulty = "easy"
+design_goal = "Observe whether an agent reads the contract or only follows visible tests."
+
+# How Harbor should run this task.
+[environment]
+build_timeout_sec = 600.0
+workdir = "/app"
+
+[agent]
+timeout_sec = 120.0
+
+[verifier]
+timeout_sec = 120.0
