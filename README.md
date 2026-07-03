@@ -2,7 +2,10 @@
 
 ## Overview
 
-This repository collects small Harbor experiments for evaluating local coding agents through reproducible offline eval tasks. The first experiment checks whether Harbor can run a task, start an agent, execute a verifier, and write readable job artifacts.
+This repository collects small Harbor experiments for evaluating local coding
+agents through reproducible offline eval tasks. The first experiment checks
+whether Harbor can run a task, start an agent, execute a verifier, and write
+readable job artifacts.
 
 ## Prerequisites
 
@@ -39,7 +42,7 @@ hidden_contract_check: 0.0
 ## Experiments
 
 - [`slugify-contract`](tasks/slugify-contract/README.md)
-  - Status: Wiring verified with `nop`.
+  - Status: Wiring verified with `nop`; Codex trial passed with `reward: 1.0`.
   - Purpose: Small Python repair task with visible tests and a hidden contract check.
 
 ## Design Notes
@@ -54,7 +57,7 @@ hidden_contract_check: 0.0
 
 - If Docker cannot find `app/`, make sure task files live under `environment/app/`.
 - If Harbor reports missing rewards, make sure the verifier writes `/logs/verifier/reward.json`.
-- If local Docker works but Harbor fails, check whether the build context matches Harbor's `environment/` context.
+- If local Docker works but Harbor fails, check Harbor's `environment/` context.
 
 ## References
 
