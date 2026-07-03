@@ -2,9 +2,7 @@
 
 ## Overview
 
-This repository collects small Harbor experiments for evaluating local coding agents through reproducible offline eval tasks.
-
-The first experiment checks whether Harbor can run a task, start an agent, execute a verifier, and write readable job artifacts.
+This repository collects small Harbor experiments for evaluating local coding agents through reproducible offline eval tasks. The first experiment checks whether Harbor can run a task, start an agent, execute a verifier, and write readable job artifacts.
 
 ## Prerequisites
 
@@ -40,9 +38,9 @@ hidden_contract_check: 0.0
 
 ## Experiments
 
-| Experiment | Status | Purpose |
-| --- | --- | --- |
-| [`slugify-contract`](tasks/slugify-contract/README.md) | Wiring verified with `nop` | Small Python repair task with visible tests and a hidden contract check. |
+- [`slugify-contract`](tasks/slugify-contract/README.md)
+  - Status: Wiring verified with `nop`.
+  - Purpose: Small Python repair task with visible tests and a hidden contract check.
 
 ## Design Notes
 
