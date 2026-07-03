@@ -832,6 +832,6 @@
   "title": "TaskConfig",
   "type": "object",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/sotayamashita/harbor-codex-exec-eval/main/schemas/harbor-task.schema.json",
+  "$id": "https://raw.githubusercontent.com/sotayamashita/harbor-eval-playground/main/schemas/harbor-task.schema.json",
   "$comment": "Generated locally from harbor.models.task.config.TaskConfig in Harbor 0.17.0."
 }
