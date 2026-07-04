@@ -13,6 +13,7 @@ readable job artifacts.
 - `uv` is available.
 - Harbor runs via `uv run --with harbor harbor`.
 - Codex CLI is installed and authenticated for Codex-agent experiments.
+- Optional verifier secrets are loaded with `--env-file .env`.
 - The local task schema is generated from Harbor `0.17.0`.
 
 ## Quick Start
@@ -25,7 +26,6 @@ uv run --with harbor harbor run \
   -a nop \
   -m nop \
   -n 1 \
-  --job-name slugify-nop-wiring \
   --force-build \
   --yes
 ```
@@ -44,6 +44,9 @@ hidden_contract_check: 0.0
 - [`slugify-contract`](tasks/slugify-contract/README.md)
   - Status: Wiring verified with `nop`; Codex trial passed with `reward: 1.0`.
   - Purpose: Small Python repair task with visible tests and a hidden contract check.
+- [`bug-report-summary`](tasks/bug-report-summary/README.md)
+  - Status: Codex trial passed with `reward: 1.0` and `content_score: 0.95`.
+  - Purpose: Evaluate a generated summary with an existence check and content judge.
 
 ## Design Notes
 
@@ -52,11 +55,15 @@ hidden_contract_check: 0.0
 - Visible tests are available to the agent; hidden checks live in the verifier.
 - Harbor rewards must be numeric; readable failure details go to verifier logs.
 - Harbor's Docker build context is the task `environment/` directory.
+- `.env` is for local secrets only and should not be committed.
+- Commands omit `--job-name` so Harbor uses a timestamped job directory.
 
 ## Troubleshooting
 
 - If Docker cannot find `app/`, make sure task files live under `environment/app/`.
 - If Harbor reports missing rewards, make sure the verifier writes `/logs/verifier/reward.json`.
+- If Harbor reports a `lock.json` mismatch, rerun with a new job name or omit
+  `--job-name`.
 - If local Docker works but Harbor fails, check Harbor's `environment/` context.
 
 ## References

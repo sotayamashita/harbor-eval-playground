@@ -1,0 +1,25 @@
+#:schema ../../schemas/harbor-task.schema.json
+schema_version = "1.3"
+
+[task]
+name = "sotayamashita/bug-report-summary"
+description = "Summarize a bug report and evaluate the summary with an LLM judge."
+
+[metadata]
+category = "writing"
+difficulty = "easy"
+design_goal = "Separate artifact existence checks from LLM-as-a-Judge content evaluation."
+
+[environment]
+build_timeout_sec = 600.0
+workdir = "/app"
+
+[agent]
+timeout_sec = 120.0
+
+[verifier]
+timeout_sec = 900.0
+
+[verifier.env]
+ANTHROPIC_API_KEY = "${ANTHROPIC_API_KEY}"
+MODEL_NAME = "claude-haiku-4-5"
